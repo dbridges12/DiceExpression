@@ -9,14 +9,14 @@
 
 We would like you to write a javascript module to be used with node.js to evaluate various dice expressions. 
 
-## Here are the requirements:
+### Here are the requirements:
 
 The module should export a DiceExpression constructor with the following signature:
 
 ```javascript
 function DiceExpression (exp:String):DiceExpression
-
-## Features
+```
+### Features
 
 You may define the DiceExpression api any way you like, but it should support the following features:
 
@@ -26,7 +26,7 @@ You may define the DiceExpression api any way you like, but it should support th
 * bonus: evaluate the DiceExpression in terms of it's minimal possible roll
 * bonus: evaluate the DiceExpression as an array of individual rolls, e.g., [8, 3, -7, 2] (from above)
 
-## Additional Requirements
+### Additional Requirements
 
 * Please use the npmjs node module random-js as the random number engine within your code. This should be your module's only dependency. 
 * You may have any devDependencies you require -- tools that are part of your project but are not directly called by your source code.

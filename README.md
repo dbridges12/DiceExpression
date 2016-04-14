@@ -7,8 +7,8 @@
 * DiceExpression => x?(d|D)% where x is the # of dice and '%' = 100 sides - '2d%' is 2 100-sided dice
 * DiceExpression => DiceExpression +/- DiceExpression +/- Integer - (3d8 + 3 + 12d6) you can mix and match
 
-### The API
-* The included app.js file shows how to include the module and call the functions
+### The API - Full API documentation is acessed in out/index.html file inside the project
+* The included **app.js** file shows how to include the module and call the functions
 ```js
 var DiceExpression = require('./src/dice-expression');
 ```
@@ -17,25 +17,29 @@ var DiceExpression = require('./src/dice-expression');
 var d20 = new DiceExpression('9d6 + 4 - 4d7');
 ```
 
-* evaluate the DiceExpression as many times as we want using the roll method.
+* **roll()** - evaluate the DiceExpression as many times as we want using the roll method.
 ```js
 console.log('d20 normal roll: ',d20.roll());
 // d20 normal roll: 29
+console.log('d20 normal roll: ',d20.roll());
+// d20 normal roll: 15
+console.log('d20 normal roll: ',d20.roll());
+// d20 normal roll: 21
 ```
 
-* evaluate the DiceExpression in terms of it's minimum possible dice roll - each die rolls a 1
+* **min()** - evaluate the DiceExpression in terms of it's minimum possible dice roll - each die rolls a 1
 ```js
 console.log('d20 min() roll: ',d20.min());
 // d20 min() roll: 9
 ```
 
-* evaluate the DiceExpression in terms of it's maximum possible roll dice roll - each die rolls its highest number
+* **max()** - evaluate the DiceExpression in terms of it's maximum possible roll dice roll - each die rolls its highest number
 ```js
 console.log('d20 max() roll: ',d20.max());
 // d20 max() roll: 30
 ```
 
-* evaluate the DiceExpression as an array of individual rolls - show each dice grouping and its results. This returns an array with each grouping roll list, total value for that grouping and the total value for the expression
+* **detail()** - evaluate the DiceExpression as an array of individual rolls - show each dice grouping and its results. This returns an array with each grouping roll list, total value for that grouping and the total value for the expression
 ```js
 console.log('d20 detail roll: ',d20.detail());
 // d20 detail roll:  [ { numDice: '9',
@@ -46,3 +50,7 @@ console.log('d20 detail roll: ',d20.detail());
     { totalValue: 18 } ]
 ```
 
+### Notes
+* Testing has been included using Jasmine and can be called using the jasmine-runner.js file. (Jasmine must be installed globally or for the project)
+* The only dependency is random-js which is used to generate pseudo-random numbers for each die roll
+* The **out folder** inside the project contains fully formatted JSDoc API documention
